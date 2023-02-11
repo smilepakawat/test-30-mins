@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MinimumIntController } from './minimum-int.controller';
+import { MinimumIntService } from './minimum-int.service';
 
 describe('MinimumIntController', () => {
   let controller: MinimumIntController;
@@ -7,6 +8,7 @@ describe('MinimumIntController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [MinimumIntController],
+      providers: [MinimumIntService]
     }).compile();
 
     controller = module.get<MinimumIntController>(MinimumIntController);
