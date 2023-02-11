@@ -15,4 +15,13 @@ describe('MostSecondStringService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  describe('getMostSecondString', () => {
+    it('it should return most second character when success', async () => {
+      const str: string = 'aaaabbcc'
+      const expected: string = 'bc'
+      const revived = await service.getMostSecondString(str)
+      expect(revived).toStrictEqual(expected)
+    })
+  })
 });
