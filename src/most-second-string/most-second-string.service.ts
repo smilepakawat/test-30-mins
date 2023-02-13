@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class MostSecondStringService {
 
-    getMostSecondString(str: string) {
+    async getMostSecondString(str: string) {
         const arr: string[] = str.split('')
         let data: {
             key: string;
@@ -25,7 +25,7 @@ export class MostSecondStringService {
             }
         }
         const max = Math.max(...data.map((value) => value.value))
-        const mostString = data
+        await data
             .sort((a, b) => (a.value > b.value ? -1 : 0))
             .filter((value) => value.value < max)
             .forEach((value, index, array) => {
