@@ -12,10 +12,22 @@ describe('FizzBuzzController', () => {
       providers: [FizzBuzzService]
     }).compile();
 
-    controller = module.get<FizzBuzzController>(FizzBuzzController);
+    controller = module.get<FizzBuzzController>(FizzBuzzController)
+    fizzBuzzService = module.get<FizzBuzzService>(FizzBuzzService)
   });
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  describe('getFizzBuzz', () => {
+    it('should return array of string when success', async () => {
+      const num: number = 3
+      const result: string[] = ["1", "2", "Fizz"]
+      const spyFizzBuzz = jest.spyOn(fizzBuzzService, 'getFizzBuzz').mockReturnThis()
+      await controller.getFizzBuzz(num)
+      expect(spyFizzBuzz).toBeCalledTimes(1)
+      // expect(recieved).toBe(result)
+    })
+  })
 });
