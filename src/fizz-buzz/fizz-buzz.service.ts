@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class FizzBuzzService {
 
-    async getFizzBuzz(num: number) {
+    getFizzBuzz(num: number) {
         let response: string[] = []
         for (let i = 1; i <= num; i++) {
             if (i % 3 === 0 && i % 5 === 0) {
@@ -20,6 +20,6 @@ export class FizzBuzzService {
                 }
             }
         }
-        return await response
+        return response
     }
 }

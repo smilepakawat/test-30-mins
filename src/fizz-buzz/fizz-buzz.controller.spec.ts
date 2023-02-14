@@ -24,10 +24,9 @@ describe('FizzBuzzController', () => {
     it('should return array of string when success', async () => {
       const num: number = 3
       const result: string[] = ["1", "2", "Fizz"]
-      const spyFizzBuzz = jest.spyOn(fizzBuzzService, 'getFizzBuzz').mockReturnThis()
+      const spyFizzBuzz = jest.spyOn(fizzBuzzService, 'getFizzBuzz').mockImplementation(() => result)
       await controller.getFizzBuzz(num)
       expect(spyFizzBuzz).toBeCalledTimes(1)
-      // expect(recieved).toBe(result)
     })
   })
 });
