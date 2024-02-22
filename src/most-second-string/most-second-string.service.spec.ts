@@ -24,4 +24,13 @@ describe('MostSecondStringService', () => {
       expect(revived).toStrictEqual(expected)
     })
   })
+
+  describe('getMostSecondString', () => {
+    it('it should return most second character when success', async () => {
+      const str: string = 'aaaabbcccccc'
+      const expected: string = 'a'
+      const revived = await service.getMostSecondString(str)
+      expect(revived).toStrictEqual(expected)
+    })
+  })
 });
